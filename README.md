@@ -71,17 +71,18 @@ Request Body (JSON):
       "title": [
         {
           "text": {
-            "content": "Shortcut Input"  // Replace this with Shortcut Input variable for Merchant
+            "content": "Merchant"
           }
         }
       ]
     },
     "Amount": {
-      "number": "Rounded Number"  // This is the Rounded Number variable
+      "number": "Rounded Number"  
     }
   }
 }
-
+//Replace the "Merchant" with "Shortcut Input" and search for "Merchant"
+//"Rounded Number" is the variable you got from transaction's "Amount"
 This block should look like this when done: [screenshot 5_GetContentsOfURL]
 
 
