@@ -16,16 +16,6 @@ This automation logs your ApplePay transactions (merchant + amount) directly int
 - **Notion API** – you’ll need an integration token
 - **Custom JSON formatting**
 
-## 🖼 Screenshots of the Automation
-
-| Step | Description | Screenshot |
-|------|-------------|------------|
-| 1 | ApplePay Trigger | ![Trigger](1_Trigger.jpg) |
-| 2 | Get Variable | ![Variable](2_GetVariable.jpg) |
-| 3 | Round Numbers from transaction | ![Variable](3_RoundNumbers.jpg) |
-| 4 | Get text from Merchant | ![Text](4_Merchant.jpg) |
-| 5 | Get contents of URL | ![JSON](5_GetContentsOfURL.jpg) |
-
 ## 🛡 Security and Customization
 
 - DO NOT share your real Notion token or database ID.
@@ -81,10 +71,21 @@ Request Body (JSON):
     }
   }
 }
+
 //Replace the "Merchant" with "Shortcut Input" and search for "Merchant"
 //"Rounded Number" is the variable you got from transaction's "Amount"
 This block should look like this when done: [screenshot 5_GetContentsOfURL]
 
+
+## 🖼 Screenshots of the Automation
+
+| Step | Description | Screenshot |
+|------|-------------|------------|
+| 1 | ApplePay Trigger | ![Trigger](1_Trigger.jpg) |
+| 2 | Get Variable | ![Variable](2_GetVariable.jpg) |
+| 3 | Round Numbers from transaction | ![Variable](3_RoundNumbers.jpg) |
+| 4 | Get text from Merchant | ![Text](4_Merchant.jpg) |
+| 5 | Get contents of URL | ![JSON](5_GetContentsOfURL.jpg) |
 
 4. **Test a transaction** – Try using ApplePay and check your Notion!
 
