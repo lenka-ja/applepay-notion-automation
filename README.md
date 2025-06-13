@@ -51,11 +51,12 @@ Headers:
 - Authorization: Bearer [your Integration Secret]
 - Notion-Version: 2022-06-28
 Request Body (JSON):
+```json
 {
   "parent": {
     "type": "database_id",
     "database_id": "DATABASE_ID"
-  },
+   },
   "properties": {
     "Name": {
       "title": [
@@ -71,9 +72,10 @@ Request Body (JSON):
     }
   }
 }
+```
 
-//Replace the "Merchant" with "Shortcut Input" and search for "Merchant"
-//"Rounded Number" is the variable you got from transaction's "Amount"
+- Replace the "Merchant" with "Shortcut Input" and search for "Merchant"
+- "Rounded Number" is the variable you got from transaction's "Amount"
 This block should look like this when done: [screenshot 5_GetContentsOfURL]
 
 
