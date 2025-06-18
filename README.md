@@ -13,27 +13,29 @@ This automation logs your ApplePay transactions (merchant + amount) directly int
 ## 🔧 Tools Used
 
 - **iOS Shortcuts Automation** 
-- **Notion API** – you’ll need an integration token
-- **Custom JSON formatting**
+- **Notion API** – you’ll need an integration token (guide follows below)
 
 ## 🛡 Security and Customization
 
 - DO NOT share your real Notion token or database ID.
 - Screenshots in this repo are anonymized.
-- This repo shows a basic set up. You'll want to customize it by adding more parameters (like Expense category, Date or Account)
+- This repo shows a basic set up. You might want to customize it by adding more parameters (like Expense category, Date, Account, etc.)
 
 ## 🚀 How To Use This
 
 1. **Set up your Notion database**:
    - Make sure it has at least “Name" and "Amount" columns. You can create more columns to customize it to your needs. 
-   - later in the process you'll need the database ID: on the full page of your database, click on menu (three dots at the upper right-hand corner) > Copy link > paste it somewhere (you need to edit the link) - delete anything before the slash (including the slash) and after the question mark (incl. the question mark) - you'll end up with alphanumeric name of 32 characters
+   - Later in the process you'll need the database ID: on the full page of your database, click on menu (three dots at the upper right-hand corner) > Copy link > paste it somewhere (you need to edit the link) [screenshot N_databaseID1]
+   - From the link delete anything before the slash (including the slash) and after the question mark (incl. the question mark) - you'll end up with alphanumeric string of 32 characters [screenshot N_databaseID2]
 
 2. **Create a Notion integration**:
    - [https://www.notion.so/profile/integrations](https://www.notion.so/profile/integrations)
-   - get Internal Integration Secret (do not share this with anyone) - you'll need it later
+   - [screenshot API_NewIntegration]
+   - Create integration name and connect it to your workspace and Save.
+   - Set up settings and get Internal Integration Secret (do not share this with anyone) - you'll need it later [screenshot API_IntegrationSecret]
 
 3. **Connect your Notion database with your Integration**:
-   - on the full page of your database, click on menu (three dots at the upper right-hand corner) > Connections and search for the name of Integration you just created
+   - On the full page of your database, click on menu > Connections and search for the name of Integration you just created [screenshot N_Connection]
 
 3. **Create the iOS Automation** manually:
 1) Trigger = Transaction [screenshot 1_Trigger]
