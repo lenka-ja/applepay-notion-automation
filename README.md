@@ -25,34 +25,64 @@ This automation logs your ApplePay transactions (merchant + amount) directly int
 
 1. **Set up your Notion database**:
    - Make sure it has at least “Name" and "Amount" columns. You can create more columns to customize it to your needs. 
-   - Later in the process you'll need the database ID: on the full page of your database, click on menu (three dots at the upper right-hand corner) > Copy link > paste it somewhere (you need to edit the link) [screenshot N_databaseID1]
-   - From the link delete anything before the slash (including the slash) and after the question mark (incl. the question mark) - you'll end up with alphanumeric string of 32 characters [screenshot N_databaseID2]
+   - Later in the process you'll need the database ID: on the full page of your database, click on menu (three dots at the upper right-hand corner) > Copy link > paste it somewhere (you need to edit the link)
+     
+      <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/N_databaseID1.png" width=30% height=30%>
+     
+   - From the link delete anything before the slash (including the slash) and after the question mark (incl. the question mark) - you'll end up with alphanumeric string of 32 characters
+     
+       <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/N_databaseID2.png" width=70% height=70%>
 
 2. **Create a Notion integration**:
    - [https://www.notion.so/profile/integrations](https://www.notion.so/profile/integrations)
-   - [screenshot API_NewIntegration]
+     
+   -  <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/API_NewIntegration.png" width=50% height=50%>
+
    - Create integration name and connect it to your workspace and Save.
-   - Set up settings and get Internal Integration Secret (do not share this with anyone) - you'll need it later [screenshot API_IntegrationSecret]
+   - Define settings and get Internal Integration Secret (do not share this with anyone) - you'll need it later
+     
+     <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/API_IntegrationSecret.png" width=70% height=70%>
 
 3. **Connect your Notion database with your Integration**:
-   - On the full page of your database, click on menu > Connections and search for the name of Integration you just created [screenshot N_Connection]
+   - On the full page of your database, click on menu > Connections and search for the name of Integration you just created
 
-3. **Create the iOS Automation** manually:
-1) Trigger = Transaction [screenshot 1_Trigger]
-2) Choose the card(s) you want to receive the expense from
-3) In the next step click on New Blank Automation
-4) On scripting tab search for "Get Variable" 
-5) Tap on Variable and choose "Shortcut Input" from the menu [screenshot 2_GetVariable]
-6) Add another action: "Get numbers from" - it should fill with "Shortcut Input" again
-7) Add "Round numbers" - I chose to round the numbers to Ones place [screenshot 3_RoundNumbers]
-8) Add "Get text from Input", click on "Input" and choose "Select Variable" - search for "Shortcut Input" and choose "Merchant" from the menu [screenshot 4_Merchant]
-9) Add "URL" and fill: https://api.notion.com/v1/pages
-10) Add "Get contents of URL"
+     <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/N_Connection.png" width=50% height=50%>
+
+4. **Create the iOS Automation** manually:
+
+a) Trigger = Transaction
+
+   <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/1_Trigger.jpg" width=30% height=30%>
+
+b) Choose the payment card(s) you want to receive the expense from
+
+c) In the next step click on New Blank Automation
+
+d) On scripting tab search for "Get Variable" 
+
+e) Tap on Variable and choose "Shortcut Input" from the menu
+
+   <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/2_GetVariable.jpg" width=30% height=30%>
+
+f) Add another action: "Get numbers from" - it should fill with "Shortcut Input" again
+
+g) Add "Round numbers" - I chose to round the numbers to Ones place (to prevent issues with the different formats between transaction and Notion database)
+
+   <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/3_RoundNumbers.jpg" width=30% height=30%>
+
+h) Add "Get text from Input", click on "Input" and choose "Select Variable" - search for "Shortcut Input" and choose "Merchant" from the menu
+
+   <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/4_Merchant.jpg" width=30% height=30%>
+
+i) Add "URL" and fill: https://api.notion.com/v1/pages
+
+j) Add "Get contents of URL"
 Method = POST
 Headers:
 - Authorization: Bearer [your Integration Secret]
 - Notion-Version: 2022-06-28
-Request Body (JSON):
+
+  Request Body (JSON):
 ```json
 {
   "parent": {
@@ -78,18 +108,10 @@ Request Body (JSON):
 
 - Replace the "Merchant" with "Shortcut Input" and search for "Merchant"
 - "Rounded Number" is the variable you got from transaction's "Amount"
-This block should look like this when done: [screenshot 5_GetContentsOfURL]
+This block should look like this when done:
 
+   <img src="https://github.com/lenka-ja/applepay-notion-automation/blob/main/5_GetContentsOfURL2.jpg" width=30% height=30%>
 
-## 🖼 Screenshots of the Automation
-
-| Step | Description | Screenshot |
-|------|-------------|------------|
-| 1 | ApplePay Trigger | ![Trigger](1_Trigger.jpg) |
-| 2 | Get Variable | ![Variable](2_GetVariable.jpg) |
-| 3 | Round Numbers from transaction | ![Variable](3_RoundNumbers.jpg) |
-| 4 | Get text from Merchant | ![Text](4_Merchant.jpg) |
-| 5 | Get contents of URL | ![JSON](5_GetContentsOfURL.jpg) |
 
 4. **Test a transaction** – Try using ApplePay and check your Notion!
 
