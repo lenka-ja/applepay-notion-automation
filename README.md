@@ -1,27 +1,27 @@
 # applepay-notion-automation
 Track ApplePay expenses in Notion using iOS Automation
 
-# 💸 ApplePay to Notion: Automated Expense Tracker
+# ApplePay to Notion: Automated Expense Tracker
 
 This automation logs your ApplePay transactions (merchant + amount) directly into a Notion database. It's built using Apple's iOS Automations, Notion API, and text manipulation to handle different currency formatting.
 
-## 🧩 What It Does
+## What It Does
 
 - Triggered by ApplePay transactions via iOS Shortcuts Automation
 - Sends the transaction info as a new row to a Notion Expense Tracker database
 
-## 🔧 Tools Used
+## Tools Used
 
 - **iOS Shortcuts Automation** 
 - **Notion API** – you’ll need an integration token (guide follows below)
 
-## 🛡 Security and Customization
+## Security and Customization
 
 - DO NOT share your real Notion token or database ID.
 - Screenshots in this repo are anonymized.
 - This repo shows a basic set up. You might want to customize it by adding more parameters (like Expense category, Date, Account, etc.)
 
-## 🚀 How To Use This
+## How To Use This
 
 1. **Set up your Notion database**:
    - Make sure it has at least “Name" and "Amount" columns. You can create more columns to customize it to your needs. 
@@ -115,6 +115,6 @@ This block should look like this when done:
 
 4. **Test a transaction** – Try using ApplePay and check your Notion!
 
-## 🧠 Why I Built This
+## Why I Built This
 
 I wanted a real-time, low-effort and no-input-required way to track my personal spending.
